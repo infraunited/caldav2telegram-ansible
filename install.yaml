@@ -3,12 +3,11 @@
   gather_facts: no
   become: false #do not become root
   pre_tasks:
-  - name: Create Script folder
-    tags: folder
-    file:
-      name: ~/caldav2telegram/git #git because otherwise there is an error with the venv
-      state: directory
-      recurse: yes
+  - name: Clone Git Repository #clone script code from gitlab
+    tags: git
+    git:
+      repo: https://gitlab.com/iexos/caldav2telegram.git
+      dest: ~/caldav2telegram
   - name: Create virtual environment #to make sure pip is latest version
     tags: venv
     pip:
@@ -26,16 +25,11 @@
       name: python-telegram-bot
       version: '13.0'
       virtualenv: ~/caldav2telegram
-  - name: Clone Git Repository #clone script code from gitlab
-    tags: git
-    git:
-      repo: https://gitlab.com/iexos/caldav2telegram.git
-      dest: ~/caldav2telegram/git
   - name: Copy Config File to Server #this requires the example config to be stored in ./files/default_config.yml (relative to your playbook)
     tags: config
     copy:
       src: default_config.yml
-      dest: ~/caldav2telegram/git/src/config.yml
-      owner: whoami
-      group: whoami
+      dest: ~/caldav2telegram/src/config.yml
+      owner: root
+      group: root
       mode: 0644
