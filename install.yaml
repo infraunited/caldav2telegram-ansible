@@ -28,8 +28,8 @@
   - name: Copy Config File to Server #this requires the example config to be stored in ./files/default_config.yml (relative to your playbook)
     tags: config
     copy:
-      src: default_config.yml
+      src: ~/config.example.yml
       dest: ~/caldav2telegram/src/config.yml
       owner: root
       group: root
-      mode: 0644
+      mode: 0000
