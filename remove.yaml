@@ -1,0 +1,11 @@
+---
+- hosts: all #run vs all hosts of your inventory
+  gather_facts: no
+  become: false #do not become root
+  pre_tasks:
+  - name: Remove Script folder
+    tags: folder
+    file:
+      name: ~/caldav2telegram #git because otherwise the>
+      state: absent
+      force: yes
