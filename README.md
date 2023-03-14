@@ -1,4 +1,5 @@
 # ansible-caldav2telegram
+*Note: this was made for an uberspace.de Account and is currently not working*
 
 This repository contains two ansible playbooks to install and remove the Script https://gitlab.com/iexos/caldav2telegram to a python3 virtual environment.
 
