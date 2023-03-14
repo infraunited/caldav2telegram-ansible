@@ -16,8 +16,8 @@ This repository contains two ansible playbooks to install and remove the Script 
 
 ## Installation
 1) `cd ~` => change to root directory
-2) `wget https://gitlab.com/iexos/caldav2telegram/-/raw/8e7af16a2459eb8c69b1862d756d412cb42ac56c/config.example.yml?inline=false caldav2telegram.yml` => download default config from gitlab
-3) `nano caldav2telegram.yml` => open config file
+2) `wget https://gitlab.com/iexos/caldav2telegram/-/raw/8e7af16a2459eb8c69b1862d756d412cb42ac56c/config.example.yml` => download default config from gitlab
+3) `nano config.example.yml` => open config file
 4) Follow the Instructions on https://gitlab.com/iexos/caldav2telegram to configure the Script
 5) `ansible-playbook install.yml` => install the Script
 
