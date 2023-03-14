@@ -1,5 +1,5 @@
 ---
-- hosts: all #run vs all hosts of your inventory
+- hosts: localhost #run vs all hosts of your inventory
   gather_facts: no
   become: false #do not become root
   pre_tasks:
@@ -14,8 +14,8 @@
       name:
         - pyYAML
         - pytz
-        - icalendar
         - caldav
+        - icalendar
       state: latest
       virtualenv: ~/caldav2telegram
   tasks:
@@ -30,6 +30,4 @@
     copy:
       src: ~/config.example.yml
       dest: ~/caldav2telegram/src/config.yml
-      owner: root
-      group: root
-      mode: 0000
+      mode: 0600
